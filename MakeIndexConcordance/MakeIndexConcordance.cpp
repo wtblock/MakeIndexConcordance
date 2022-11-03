@@ -207,11 +207,29 @@ int _tmain( int argc, TCHAR* argv[], TCHAR* envp[] )
 		// add the last name last
 		csColumn1 += Output[ 0 ];
 
+		// build the second column of the concordance
+		// which contains the view of the text in 
+		// the index (basically the original input
+		// with some possible spacing corrections)
+		CString csColumn2;
+
+		// add the tokens in order
+		for ( size_t nToken = 0; nToken < nTokens; nToken++ )
+		{
+			const CString csToken = Output[ nToken ];
+			csColumn2 += csToken;
+			if ( nToken == 0 )
+			{
+				csColumn2 += _T( ",");
+			}
+			csColumn2 += _T( " " );
+		}
+
 		// build the output string from column 1 and
-		// the original input line separated by a tilde
-		// character (~) and terminated with a line feed
+		// the column 2 separated by a tilde character (~) 
+		// and terminated with a line feed
 		CString csOut;
-		csOut.Format( _T( "%s~%s\n" ), csColumn1, csLine );
+		csOut.Format( _T( "%s~%s\n" ), csColumn1, csColumn2 );
 
 		// write the output line to the console (which
 		// can be redirected to another text file)
