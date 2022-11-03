@@ -61,7 +61,7 @@ int _tmain( int argc, TCHAR* argv[], TCHAR* envp[] )
 		fErr.WriteString( csMessage );
 
 		// display the arguments
-		for ( int i = 1; i < nArgs; i++ )
+		for ( size_t i = 1; i < nArgs; i++ )
 		{
 			csMessage.Format( _T( "Parameter %d is %s\n.\n" ), i, arrArgs[ i ] );
 			fErr.WriteString( csMessage );
@@ -93,7 +93,7 @@ int _tmain( int argc, TCHAR* argv[], TCHAR* envp[] )
 			_T( "The output format is as follows:\n" )
 			_T( "  first_name last_name~last_name, first_name\n" )
 			_T( ".\n" )
-			_T( "The output can be pasted into a blank Microsoft " )
+			_T( "The output can be pasted into a blank Microsoft\n" )
 			_T( "  Word document which can then be converted into \n" )
 			_T( "  a table.\n" )
 			_T( ".\n" )
